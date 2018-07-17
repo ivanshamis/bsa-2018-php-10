@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::put('/api/currencies/{id}/rate','ApiController@put')->middleware('put.rate');
+Route::put('/currencies/{id}/rate','ApiCurrencyController@put')->middleware('auth');

@@ -25,6 +25,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('currency.put', 'App\Policies\CurrencyPolicy@put');
     }
 }
