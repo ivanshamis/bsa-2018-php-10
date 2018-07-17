@@ -20,7 +20,7 @@ class ApiCurrencyController extends Controller
 
             $emailUsers = User::where('id', '<>', Auth::user()->id) -> get();
             foreach ($emailUsers as $user) {
-                SendRateChangedEmail::dispatch($user, $currency, $oldRate)->onQueue('email');
+                SendRateChangedEmail::dispatch($user, $currency, $oldRate)->onQueue('notification');
             }
             return response()->json(['Ok' => 'Currency rate updated!']);
         }
